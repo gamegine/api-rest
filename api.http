@@ -1,0 +1,36 @@
+@hostname =	localhost
+@port = 3000
+@host = http://{{hostname}}:{{port}}
+
+###
+GET {{host}}/
+
+// CRUD
+// Create
+###
+POST {{host}}/api
+content-type: application/json
+
+{
+  "name": "test"
+}
+
+// Read
+###
+GET {{host}}/api/
+
+###
+GET {{host}}/api/1
+
+// Update
+###
+PUT {{host}}/api/1
+content-type: application/json
+
+{
+  "name": "test"
+}
+
+// Delete
+###
+DELETE {{host}}/api/1

@@ -26,7 +26,8 @@
         "dbaeumer.vscode-eslint",
         "christian-kohler.npm-intellisense",
         "Orta.vscode-jest",
-        "oderwat.indent-rainbow"
+        "oderwat.indent-rainbow",
+        "humao.rest-client"
       ]
     }
   }

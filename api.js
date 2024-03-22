@@ -30,6 +30,9 @@ router.get("/:id", (req, res) => {
   else res.status(404).json({ code: 404, err: "Not Found" });
 });
 // update
+// Collection Update 405 not allowed
+router.put("/", (req, res) => res.status(405).json({ code: 405, err: "Method Not Allowed" }));
+router.patch("/", (req, res) => res.status(405).json({ code: 405, err: "Method Not Allowed" }));
 // update/Replace
 router.put("/:id", (req, res) => {
   const id = req.params.id;

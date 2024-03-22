@@ -23,8 +23,16 @@ GET {{host}}/api/
 GET {{host}}/api/1
 
 // Update
-###
+### Replace
 PUT {{host}}/api/1
+content-type: application/json
+
+{
+  "test": "test"
+}
+
+### Modify
+PATCH {{host}}/api/1
 content-type: application/json
 
 {
@@ -32,5 +40,7 @@ content-type: application/json
 }
 
 // Delete
+###
+DELETE {{host}}/api/
 ###
 DELETE {{host}}/api/1

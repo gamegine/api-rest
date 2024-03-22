@@ -30,19 +30,31 @@ router.get("/:id", (req, res) => {
   else res.status(404).json({ code: 404, err: "Not Found" });
 });
 // update
-const update = (req, res) => {
+// update/Replace
+router.put("/:id", (req, res) => {
   const id = req.params.id;
   const index = data.findIndex((e) => e.id == id);
   if (index != -1) {
-    data[index] = { ...data[index], ...req.body, id };
+    data[index] = { ...req.body, id }; // Replace
     res.status(200).json(data[index]);
   } else res.status(404).json({ code: 404, err: "Not Found" });
-};
-router.put("/:id", update);
-router.patch("/:id", update);
-router.post("/:id", update);
+});
+// Update/Modify
+router.patch("/:id", (req, res) => {
+  const id = req.params.id;
+  const index = data.findIndex((e) => e.id == id);
+  if (index != -1) {
+    data[index] = { ...data[index], ...req.body, id }; // Modify
+    res.status(200).json(data[index]);
+  } else res.status(404).json({ code: 404, err: "Not Found" });
+});
+// Avoid using POST on a single resource
 
 // delete
+router.delete("/", (req, res) => {
+  data=[]
+  res.status(200).json(data);
+});
 router.delete("/:id", (req, res) => {
   const id = req.params.id;
   const index = data.findIndex((e) => e.id == id);

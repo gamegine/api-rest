@@ -2,10 +2,11 @@ const express = require("express");
 const apirouter = require("./api");
 const app = express();
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+const limit = process.env.LIMIT;
 
 //Enabling json reads and headers check
-app.use(express.json());
+app.use(express.json({ limit }));
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => res.send("Hello World!"));

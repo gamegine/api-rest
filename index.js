@@ -9,6 +9,12 @@ const limit = process.env.LIMIT;
 app.use(express.json({ limit }));
 app.use(express.urlencoded({ extended: true }));
 
+// logger middleware
+app.use((req, res, next) => {
+  console.log(req.method, req.hostname, req.path);
+  next();
+});
+
 app.get("/", (req, res) => res.send("Hello World!"));
 app.use("/api", apirouter);
 

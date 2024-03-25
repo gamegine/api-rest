@@ -6,7 +6,7 @@ const PORT = 3000;
 
 //Enabling json reads and headers check
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => res.send("Hello World!"));
 app.use("/api", apirouter);

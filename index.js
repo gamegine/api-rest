@@ -11,7 +11,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // logger middleware
 app.use((req, res, next) => {
-  console.log(req.method, req.hostname, req.path);
+  // no log HEALTHCHECK
+  if (!(req.hostname == "localhost" && req.path == "/"))
+    console.log(req.method, req.hostname, req.path);
   next();
 });
 

@@ -15,3 +15,6 @@ COPY --link . .
 EXPOSE 3000
 
 CMD [ "npm", "start" ]
+
+HEALTHCHECK --interval=5m --start-period=10s --timeout=3s \
+  CMD wget --no-verbose --tries=1 --spider http://localhost:3000 || exit 1

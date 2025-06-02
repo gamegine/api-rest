@@ -10,6 +10,6 @@
   "author": "",
   "license": "SEE LICENSE IN LICENSE",
   "dependencies": {
-    "express": "^4.21.2"
+    "express": "^5.1.0"
   }
 }
